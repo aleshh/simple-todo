@@ -51,12 +51,10 @@ class App extends Component {
   };
 
   deleteItem = e => {
-    const toDos = this.state.toDos;
-    const deletedId = e.target.id;
-    console.log('deleted: ', this.state.toDos[deletedId].title);
-    toDos.splice(deletedId, 1);
+    const deletedId = parseInt(e.target.id, 10);
+
     this.setState({
-      toDos: toDos
+      toDos: this.state.toDos.filter(td => td.id !== deletedId)
     });
   }
 
