@@ -17,6 +17,7 @@ class ToDos extends Component {
       <div className="ToDos">
         <ul>
           {list}
+          <li className="ToDo newItemEntry"></li>
         </ul>
       </div>
     );
