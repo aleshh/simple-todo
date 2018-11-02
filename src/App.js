@@ -2,11 +2,52 @@ import React, { Component } from 'react';
 import './App.css';
 import ToDos from './components/ToDos/ToDos';
 
-import toDos from './services/DataService';
-
 class App extends Component {
   state = {
-    toDos: toDos
+    toDos: [
+      {
+        id: 0,
+        dateCreated: null,
+        dateModified: null,
+        dateDue: null,
+        dateReminder: null,
+        dateCompleted: null,
+        completed: false,
+        title: 'Buy shoelaces',
+        details: '',
+        list: 'default',
+        priority: 0,
+        tags: ''
+      },
+      {
+        id: 1,
+        dateCreated: null,
+        dateModified: null,
+        dateDue: null,
+        dateReminder: null,
+        dateCompleted: null,
+        completed: false,
+        title: 'Cook dinner',
+        details: '',
+        list: 'default',
+        priority: 0,
+        tags: ''
+      },
+      {
+        id: 2,
+        dateCreated: null,
+        dateModified: null,
+        dateDue: null,
+        dateReminder: null,
+        dateCompleted: null,
+        completed: false,
+        title: 'Research PDFs',
+        details: '',
+        list: 'default',
+        priority: 0,
+        tags: ''
+      },
+    ]
   };
 
   deleteItem = e => {
