@@ -34,11 +34,9 @@ class ToDos extends Component {
   };
 
   handleReturn = e => {
-    // console.log(e.key);
     if (e.key !== 'Enter') {
       return;
     }
-    // console.log('value: ', e.target.value);
     this.onNewItem();
   }
 
