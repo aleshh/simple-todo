@@ -1,54 +1,21 @@
 import React, { Component } from 'react';
+import store from 'store2';
+
 import './App.css';
 import ToDos from './components/ToDos/ToDos';
 
 class App extends Component {
   state = {
-    toDos: [
-      {
-        id: '0',
-        dateCreated: null,
-        dateModified: null,
-        dateDue: null,
-        dateReminder: null,
-        dateCompleted: null,
-        completed: false,
-        title: 'Buy shoelaces',
-        details: '',
-        list: 'default',
-        priority: 0,
-        tags: ''
-      },
-      {
-        id: '1',
-        dateCreated: null,
-        dateModified: null,
-        dateDue: null,
-        dateReminder: null,
-        dateCompleted: null,
-        completed: false,
-        title: 'Cook dinner',
-        details: '',
-        list: 'default',
-        priority: 0,
-        tags: ''
-      },
-      {
-        id: '2',
-        dateCreated: null,
-        dateModified: null,
-        dateDue: null,
-        dateReminder: null,
-        dateCompleted: null,
-        completed: false,
-        title: 'Research PDFs',
-        details: '',
-        list: 'default',
-        priority: 0,
-        tags: ''
-      },
-    ]
+    toDos: []
   };
+
+  componentDidMount() {
+    this.setState(store('state'));
+  }
+
+  componentDidUpdate() {
+    store('state', this.state);
+  }
 
   addToDo = newToDo => this.setState({
     toDos: [...this.state.toDos, newToDo]
@@ -56,9 +23,6 @@ class App extends Component {
 
   deleteToDo = e => {
     const deletedId = e.target.id;
-
-    console.log(typeof(deletedId));
-
     this.setState({
       toDos: this.state.toDos.filter(td => td.id !== deletedId)
     });

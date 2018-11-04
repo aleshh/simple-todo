@@ -7,6 +7,9 @@ class ToDos extends Component {
   };
 
   onNewItem = () => {
+    if (this.state.newItemText === '') {
+      return;
+    }
     const newItem = {
       id: uuid(),
       dateCreated: null,
