@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=BioRhyme:200,300,400,700,800');
 
-body {
+body, input {
   font-family: 'BioRhyme', serif;
   font-weight: 200;
 }
@@ -13,7 +13,8 @@ body {
 .ToDo {
   margin: 0;
   padding: 12px;
-  font-size: 2em;
+  height: 50px;
+  font-size: 32px;
   list-style: none;
   border-bottom: 1px dotted silver;
 }
@@ -27,4 +28,19 @@ body {
   margin-right: .5em;
   border: 1px solid silver;
   cursor: pointer;
+}
+
+.dummyCheckbox {
+  border: 1px solid white;
+  cursor: default;
+}
+
+.newItemEntry input {
+  height: 100%;
+  border: none;
+  font-size: 32px;
+}
+
+.newItemEntry input:focus {
+  outline: none;
 }

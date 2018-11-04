@@ -6,13 +6,7 @@ class ToDos extends Component {
     newItemText: ''
   };
 
-  onNewItemChange = e => {
-    this.setState({
-      newItemText: e.target.value
-    });
-  };
-
-  onNewItem = e => {
+  onNewItem = () => {
     const newItem = {
       id: uuid(),
       dateCreated: null,
@@ -28,7 +22,25 @@ class ToDos extends Component {
       tags: ''
     };
     this.props.addToDo(newItem);
+    this.setState({
+      newItemText: ''
+    })
   };
+
+  onNewItemChange = e => {
+    this.setState({
+      newItemText: e.target.value
+    });
+  };
+
+  handleReturn = e => {
+    // console.log(e.key);
+    if (e.key !== 'Enter') {
+      return;
+    }
+    // console.log('value: ', e.target.value);
+    this.onNewItem();
+  }
 
   render() {
     const list = (
@@ -47,12 +59,14 @@ class ToDos extends Component {
         <ul>
           {list}
           <li className="ToDo newItemEntry">
+            <span className="checkbox dummyCheckbox" >✓</span>
             <input
               type="text"
               name="newItemText"
+              onKeyPress={this.handleReturn}
               onChange={this.onNewItemChange}
               onBlur={this.onNewItem}
-              value={this.state.newItem}
+              value={this.state.newItemText}
               placeholder="Add Item..."
             />
           </li>
