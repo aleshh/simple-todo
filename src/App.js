@@ -6,7 +6,7 @@ class App extends Component {
   state = {
     toDos: [
       {
-        id: 0,
+        id: '0',
         dateCreated: null,
         dateModified: null,
         dateDue: null,
@@ -20,7 +20,7 @@ class App extends Component {
         tags: ''
       },
       {
-        id: 1,
+        id: '1',
         dateCreated: null,
         dateModified: null,
         dateDue: null,
@@ -34,7 +34,7 @@ class App extends Component {
         tags: ''
       },
       {
-        id: 2,
+        id: '2',
         dateCreated: null,
         dateModified: null,
         dateDue: null,
@@ -50,8 +50,14 @@ class App extends Component {
     ]
   };
 
-  deleteItem = e => {
-    const deletedId = parseInt(e.target.id, 10);
+  addToDo = newToDo => this.setState({
+    toDos: [...this.state.toDos, newToDo]
+  });
+
+  deleteToDo = e => {
+    const deletedId = e.target.id;
+
+    console.log(typeof(deletedId));
 
     this.setState({
       toDos: this.state.toDos.filter(td => td.id !== deletedId)
@@ -63,7 +69,8 @@ class App extends Component {
       <div className="App">
         <ToDos
           toDos={this.state.toDos}
-          deleteItem={this.deleteItem}
+          addToDo={this.addToDo}
+          deleteToDo={this.deleteToDo}
         />
       </div>
     );
