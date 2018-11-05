@@ -49,7 +49,11 @@ class ToDos extends Component {
         return (
           <li className="ToDo" key={todo.id}>
             <span onClick={this.props.deleteToDo} id={todo.id} className="checkbox">✓</span>
-            {todo.title}
+            <input
+              type="text"
+              name={todo.id}
+              value={todo.title}
+              />
           </li>
         );
       })
@@ -59,8 +63,7 @@ class ToDos extends Component {
       <div className="ToDos">
         <ul>
           {list}
-          <li className="ToDo newItemEntry">
-            <span className="checkbox dummyCheckbox" >✓</span>
+          <li className="ToDo">
             <input
               type="text"
               name="newItemText"
